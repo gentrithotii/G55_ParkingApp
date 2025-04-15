@@ -3,15 +3,16 @@ package se.lexicon.dao;
 import se.lexicon.model.ParkingSpot;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public interface ParkingSpotDao {
 
     ParkingSpot save(ParkingSpot parkingSpot);
 
-    ArrayList<ParkingSpot> findAll();
+    List<ParkingSpot> findAll();
 
-    ArrayList<ParkingSpot> findAllAvailableSpots();
+    List<ParkingSpot> findAllAvailableSpots();
 
     Optional<ParkingSpot> findById(Integer id);
 

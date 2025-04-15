@@ -9,19 +9,28 @@ import java.util.Optional;
 public class ReservationDaoImpl implements ReservationDao {
 
     private ArrayList<Reservation> inMemoryStorage = new ArrayList<>();
+
     @Override
     public void save(Reservation reservation) {
-        // todo needs completion
+        inMemoryStorage.add(reservation);
     }
 
     @Override
     public Optional<Reservation> findById(String id) {
-        // todo needs completion
+        for (Reservation reservationItem : inMemoryStorage) {
+            if (reservationItem.getReservationId().equals(id)) {
+                return Optional.of(reservationItem);
+            }
+        }
         return Optional.empty();
     }
 
     @Override
     public void update(Reservation reservation) {
-        // todo needs completion
+        for (int i = 0; i < inMemoryStorage.size(); i++) {
+            if (inMemoryStorage.get(i).getReservationId().equals(reservation.getReservationId())) {
+                inMemoryStorage.set(i, reservation);
+            }
+        }
     }
 }
